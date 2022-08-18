@@ -1,0 +1,24 @@
+BAsicPlayerController Documentation
+
+The Package Contains:
+
+BasicPlayerController.cs
+PlayerPlaceholder Prefab
+Inventory Placeholder Image (Screnshoot006)
+a TestScene with the aplied script
+
+How to use
+
+1. add the basicPlayerController Script to your PlayerObject (the player object needs at the moment at least one camera and a playerUI canvas see TestScene)
+2. add the canvas items for the Inventory and Escape Menu to the PlayerObject in the BasicPLayerController Script Component
+2.a. if you have buttons to close the menus you have to link them to the Controller Script ... to do so:
+	- select the button that closes the menu in the scene history 
+	- in the inspector in the button component add an On Click() event
+	- select the playerObject as Object (or the object you applied the BasicPlayerControllerScript to)
+	- under function look for BAsicPlayerControllerScript and select the CloseMenu function within it
+	- drag´n drop the menuCanvas that should be closed in the function variable field
+3. enjoy 
+a.) - you have the option to allow the player pawn to be moved while a menu is open, standard behavior = not allowed
+	- you can also restrict the players abilitty to move while he is in midair by unchecking the Allow Mid Air Movement Flag, though i would not recommend at the moment becouse the phisycs don´t check out at the moment and the behaviour is kind of strange
+
+4.)MouseLook&Rest folgt morgen im Laufe des Tages
