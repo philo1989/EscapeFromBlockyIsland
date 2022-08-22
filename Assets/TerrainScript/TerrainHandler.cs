@@ -115,6 +115,7 @@ public class TerrainHandler : MonoBehaviour
         if(sizeDefined)
         {
             InitialiseBoard();
+            listofPeaks = new List<Vector3>();
             // After the board is filled with 1s to prevent issues, the hills are inserted
             for(int l = 0; l < hills; l++)
             {
@@ -280,7 +281,7 @@ public class TerrainHandler : MonoBehaviour
     }
 
 
-    /* ------ Methods for interacting with he Landscape form outside the class ------
+    /* ------ Methods for interacting with he Landscape from outside the class ------
        ------------------------------------------------------------------------------
        ------ Setters to influence the Board before Creation ------  */
 
@@ -358,7 +359,19 @@ public class TerrainHandler : MonoBehaviour
             return _spawnpoints;
         }
     }
-
+    public Vector3 GetRandomPosition()
+    {
+        if(boardCreated)
+        {
+            int _posX = Mathf.RoundToInt( UnityEngine.Random.Range(3, sizeX-3));
+            int _posY = Mathf.RoundToInt( UnityEngine.Random.Range(3, sizeY-3));
+            
+            Vector3 _spot = new Vector3(_posX,board[_posX,_posY] + 0.0001f,_posY);
+            return _spot;
+            
+        }
+        else return new Vector3(0,0,0);
+    }
     public int GetSizeX()
     {
         return sizeX;
@@ -379,19 +392,6 @@ public class TerrainHandler : MonoBehaviour
             Debug.Log("The board hasnt been created yet, no values to return");
             return 0;
         }
-    }
-    public Vector3 GetRandomPosition()
-    {
-        if(boardCreated)
-        {
-            int _posX = Mathf.RoundToInt( UnityEngine.Random.Range(3, sizeX-3));
-            int _posY = Mathf.RoundToInt( UnityEngine.Random.Range(3, sizeY-3));
-            
-            Vector3 _spot = new Vector3(_posX,board[_posX,_posY] + 0.0001f,_posY);
-            return _spot;
-            
-        }
-        else return new Vector3(0,0,0);
     }
 
 
