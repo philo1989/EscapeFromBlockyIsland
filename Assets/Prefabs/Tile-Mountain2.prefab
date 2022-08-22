@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4443825081821384946}
   - component: {fileID: 9093010361728161223}
   - component: {fileID: 103299944852857087}
-  - component: {fileID: 682907584275119989}
   m_Layer: 0
   m_Name: Tile-Mountain2
   m_TagString: Tile
@@ -63,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 25f7787ad9c6aec4c9dcf4fc74276d9d, type: 2}
+  - {fileID: 2100000, guid: a72cb0b38363600488b2ad0e50f72e4f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,16 +97,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &682907584275119989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2619998927475769891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d934438b74c28f24c82d0ad7e7af4046, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  markerPrefab: {fileID: 4878224328460082055, guid: 011cf79dc1e93424bb69c15f1e475258, type: 3}

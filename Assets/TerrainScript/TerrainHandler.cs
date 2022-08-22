@@ -432,14 +432,17 @@ public class TerrainHandler : MonoBehaviour
         //Debug.Log(output);
         
     }
-
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         SetSize(Breite,Höhe);
         GenerateBoard(amountOfHills);
         MyDebug();
         CreateLandscape();
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+
     }
 
 }
