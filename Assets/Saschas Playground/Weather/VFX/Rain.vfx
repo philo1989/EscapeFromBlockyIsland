@@ -20,7 +20,7 @@ MonoBehaviour:
     x: 558
     y: -586
     width: 781
-    height: 2339
+    height: 2359
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2655,7 +2655,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614715}
   m_ExposedName: Rain Spawn Height
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 1
   m_Category: 
   m_Min:
     m_Type:
@@ -2735,7 +2735,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614717}
   m_ExposedName: Field Size
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 2
   m_Category: 
   m_Min:
     m_Type:
@@ -2971,7 +2971,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614732}
   m_ExposedName: Rain Lifetime
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 3
   m_Category: 
   m_Min:
     m_Type:
