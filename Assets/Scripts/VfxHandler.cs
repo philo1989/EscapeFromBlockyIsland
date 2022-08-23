@@ -31,6 +31,7 @@ public class VfxHandler : MonoBehaviour
             VisualEffect _newEffect = Instantiate(snowEffect, _currentPos , Quaternion.identity);
             // Setting the Vfx Position via the exposed variables of the Visual Effect
             _newEffect.SetVector3("Position", _currentPos);
+            _newEffect.SetInt("Snow Spawn Height", 30);
         }
     }
 
