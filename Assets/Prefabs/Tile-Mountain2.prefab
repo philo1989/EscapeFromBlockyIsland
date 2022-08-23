@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4671128742666203326}
   m_Layer: 0
   m_Name: Tile-Mountain2
-  m_TagString: Tile
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

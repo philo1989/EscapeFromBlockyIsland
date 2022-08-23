@@ -7,7 +7,7 @@ public class BasicPlayerController : MonoBehaviour
 {
     private Rigidbody playerRb;
     //private Canvas playerUi;
-    private TMP_Text mouseIndicator;
+    //private TMP_Text mouseIndicator;
     private Camera firstPersonCam;
     private string mouseIndicatorStandardText = "NIX";
     public Canvas escMenu;
@@ -42,11 +42,11 @@ public class BasicPlayerController : MonoBehaviour
     {
         playerRb = GetComponent<Rigidbody>();
         //playerUi = GetComponentInChildren<Canvas>();
-        mouseIndicator = GetComponentInChildren<TMP_Text>();
+        //mouseIndicator = GetComponentInChildren<TMP_Text>();
         firstPersonCam = GetComponentInChildren<Camera>();
         
         //mouseIndicator.gameObject.SetActive(false);
-        mouseIndicator.text = mouseIndicatorStandardText;
+        //mouseIndicator.text = mouseIndicatorStandardText;
         escMenu.gameObject.SetActive(false);
         inventory.gameObject.SetActive(false);
 
@@ -125,7 +125,7 @@ public class BasicPlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            mouseIndicator.text = "you pressed the left mouse button";
+            //mouseIndicator.text = "you pressed the left mouse button";
             Debug.Log("left mouse button pressed");
             resetCrosshairTimer = 0;
         }
@@ -140,7 +140,7 @@ public class BasicPlayerController : MonoBehaviour
         }
         else if (resetCrosshairTimer >= mouseResetTime)
         {
-            mouseIndicator.text = mouseIndicatorStandardText;
+            //mouseIndicator.text = mouseIndicatorStandardText;
         }
         Debug.Log(Input.GetMouseButton(0));
 
@@ -151,14 +151,14 @@ public class BasicPlayerController : MonoBehaviour
             arms[0].transform.Rotate(Vector3.left * 5);
             arms[1].transform.Rotate(Vector3.right * 5);
             
-            mouseIndicator.text = "halten ...";
+            //mouseIndicator.text = "halten ...";
             if (rightMouseButtonTimer >= rightClickHoldTime / 2.5f)
             {
-                mouseIndicator.text += "Standby....";
+                //mouseIndicator.text += "Standby....";
 
                 if (rightMouseButtonTimer >= rightClickHoldTime)
                 {
-                    mouseIndicator.text = "hmmm strange ... eigentlich sollte jetzt was passieren";
+                    //mouseIndicator.text = "hmmm strange ... eigentlich sollte jetzt was passieren";
                     resetCrosshairTimer = 0;
                     rightMouseButtonTimer = 0;
                 }
