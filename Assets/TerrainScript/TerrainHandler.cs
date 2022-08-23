@@ -3,6 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+/* --- Terrain Generator Manual: --
+    To interact with the Terrain you can use these methods:
+    ----------------
+    > public List<Vector3> GetMountainPeaks() - Returns a List of Vector3s that include all tiles where a mountain has spawned
+    > public Vector3 GetTilePosition(int posX, int posY) - Returns the Vector3 right above the Tile at the given Position
+    > public List<Vector3> GetObjectSpawnPoints(int amount) - Returns a List of Vector3 Position to place the objective items at, 
+    evenly distributed on the entire Map, amount is the amount of objects that need to be placed
+    > public Vector3 GetRandomPosition() - Returns a Vector3 Position randomly on the entire map
+
+    */
+
 public class TerrainHandler : MonoBehaviour
 {
     // ---------------- Variables ----------------
@@ -56,7 +67,7 @@ public class TerrainHandler : MonoBehaviour
                     }
                     int _currentValue = board[i,j];
 
-                    Instantiate(_currentPrefab, _spawnPos + (Vector3.up * _currentValue / 10) + GenerateShift(10f) , Quaternion.identity);
+                    Instantiate(_currentPrefab, _spawnPos + (Vector3.up * _currentValue / 2) + GenerateShift(10f) , Quaternion.identity);
                     _spawnPos = _spawnPos + new Vector3(0,0,1);
 
                 }
@@ -157,19 +168,88 @@ public class TerrainHandler : MonoBehaviour
                 {
                     board[i,k] = -1;
                 }
-                if( i == 1 || i == sizeX-2 || k == 1 || k == sizeY-2) // 1 field from the edges
+                else if( i == 1 || i == sizeX-2 || k == 1 || k == sizeY-2) // 1 field from the edges
                 {
                     board[i,k] = 0;
                 }
-                if( i == 2 || i == sizeX-3 || k == 2 || k == sizeY-3) // 2 fields from the edges
+                else if( i == 2 || i == sizeX-3 || k == 2 || k == sizeY-3) // 2 fields from the edges
                 {
                     int _thisValue = board[i,k];
-                    board[i,k] = ((_thisValue +1) / 2); // use Math average instead
+                    if ( _thisValue <= 3)
+                    {
+                        board[i,k] = 1; // use Math average instead
+                    }
+                    else
+                    {
+                        //board[i,k] = ((_thisValue +1) / 2);
+                        //_thisValue = board[i,k];
+                        /* Vector3 _spawnPos = new Vector3(i,0,k);
+                        for ( int l = -1; l < _thisValue; l++)
+                        {
+                            Instantiate(listOfTiles[1], _spawnPos + (Vector3.up * l) , Quaternion.identity);
+                        } */
+                        Vector3 _spawnPos = new Vector3(i,10,k);
+                        Instantiate(listOfTiles[1], _spawnPos , Quaternion.identity);
+                    }
+                    //board[i,k] = ((_thisValue +1) / 2); // use Math average instead
                 }
-                if( i == 3 || i == sizeX-4 || k == 3 || k == sizeY-4) // 3 fields from the edges
+                else if( i == 3 || i == sizeX-4 || k == 3 || k == sizeY-4) // 3 fields from the edges
                 {
                     int _thisValue = board[i,k];
-                    board[i,k] = ((_thisValue +1) / 2); // use Math average instead
+                    if( _thisValue < 6 )
+                    {
+                        board[i,k] = ((_thisValue +1) / 2); // use Math average instead
+                    }
+                    else
+                    {
+                        //board[i,k] = ((_thisValue +1) / 2);
+                        //_thisValue = board[i,k];
+                        Vector3 _spawnPos = new Vector3(i,0,k);
+                        for ( int l = -1; l < _thisValue; l++)
+                        {
+                            Instantiate(listOfTiles[1], _spawnPos + (Vector3.up * l) , Quaternion.identity);
+                        }
+                    }
+                }
+                else if( i == 3 || i == sizeX-4 || k == 3 || k == sizeY-4) // 4 fields from the edges
+                {
+                    int _thisValue = board[i,k];
+                    if( _thisValue > 6 )
+                    {
+                        Vector3 _spawnPos = new Vector3(i,0,k);
+                        for ( int l = -1; l < _thisValue; l++)
+                        {
+                            Instantiate(listOfTiles[1], _spawnPos + (Vector3.up * l) , Quaternion.identity);
+                        }
+                    }
+                }
+                else if( i == 4 || i == sizeX-5 || k == 4 || k == sizeY-5) // 4 fields from the edges
+                {
+                    int _thisValue = board[i,k];
+                    if( _thisValue > 6 )
+                    {
+                        Vector3 _spawnPos = new Vector3(i,0,k);
+                        for ( int l = -1; l < _thisValue; l++)
+                        {
+                            Instantiate(listOfTiles[1], _spawnPos + (Vector3.up * l) , Quaternion.identity);
+                        }
+                    }
+                }
+                else if( i == 5 || i == sizeX-6 || k == 5 || k == sizeY-6) // 4 fields from the edges
+                {
+                    int _thisValue = board[i,k];
+                    if( _thisValue > 6 )
+                    {
+                        Vector3 _spawnPos = new Vector3(i,0,k);
+                        for ( int l = -1; l < _thisValue; l++)
+                        {
+                            Instantiate(listOfTiles[1], _spawnPos + (Vector3.up * l) , Quaternion.identity);
+                        }
+                    }
+                }
+                else
+                {
+                    // do nothing
                 }
             }
         }
