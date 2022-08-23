@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1915408418506637469
+--- !u!1 &3840857146433468416
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1425086086368713394}
-  - component: {fileID: 9069385304565448620}
-  - component: {fileID: 2686050514740053222}
+  - component: {fileID: 2280154538692452212}
+  - component: {fileID: 137446696911001807}
+  - component: {fileID: 5914210195904787039}
   m_Layer: 0
   m_Name: Snow
   m_TagString: Untagged
@@ -18,28 +18,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1425086086368713394
+--- !u!4 &2280154538692452212
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915408418506637469}
+  m_GameObject: {fileID: 3840857146433468416}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.06557655, y: 31.027374, z: -2.529624}
+  m_LocalPosition: {x: -42.386787, y: -40.02998, z: 0.31204644}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!2083052967 &9069385304565448620
+--- !u!2083052967 &137446696911001807
 VisualEffect:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915408418506637469}
+  m_GameObject: {fileID: 3840857146433468416}
   m_Enabled: 1
   m_Asset: {fileID: 8926484042661614526, guid: 6b3265c0269f16c4887da52ae91de81e, type: 3}
   m_InitialEventName: OnPlay
@@ -70,14 +70,14 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array: []
---- !u!73398921 &2686050514740053222
+--- !u!73398921 &5914210195904787039
 VFXRenderer:
   serializedVersion: 1
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1915408418506637469}
+  m_GameObject: {fileID: 3840857146433468416}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
