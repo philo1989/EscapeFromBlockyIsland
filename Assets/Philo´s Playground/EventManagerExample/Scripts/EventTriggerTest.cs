@@ -1,32 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class EventTriggerTest : MonoBehaviour
 {
+    InputAction.CallbackContext context;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("q"))
+
+        
+        if (context.started)
         {
+            Debug.Log("SpawjNmaan");
             EventManager.TriggerEvent("test");
         }
-        if (Input.GetKeyDown("o"))
-        {
-            EventManager.TriggerEvent("Spawn");
-        }
-        if (Input.GetKeyDown("p"))
-        {
-            EventManager.TriggerEvent("Destroy");
-        }
-        if (Input.GetKeyDown("x"))
-        {
-            EventManager.TriggerEvent("Junk");
-        }
-        if (Input.GetKeyDown("d"))
-        {
-            EventManager.TriggerEvent("Debug");
-        }
-        
     }
 }
