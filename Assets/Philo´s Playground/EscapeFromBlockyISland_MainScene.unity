@@ -335,6 +335,18 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!114 &1684471775 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9041555267469692887, guid: 7be9abef68a498a44a01715071a228e8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2089974831}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1793655400
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,13 +542,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2337372277651497853
+--- !u!1001 &2089974831
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1378288144316190658, guid: 7be9abef68a498a44a01715071a228e8,
+        type: 3}
+      propertyPath: m_Lens.m_SensorSize.x
+      value: 1.9917184
+      objectReference: {fileID: 0}
+    - target: {fileID: 1378288144316190659, guid: 7be9abef68a498a44a01715071a228e8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.62211657
+      objectReference: {fileID: 0}
     - target: {fileID: 2337372278216449646, guid: 7be9abef68a498a44a01715071a228e8,
         type: 3}
       propertyPath: m_RootOrder
@@ -596,6 +618,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3661950598507240935, guid: 7be9abef68a498a44a01715071a228e8,
+        type: 3}
+      propertyPath: m_UIInputModule
+      value: 
+      objectReference: {fileID: 1684471775}
+    - target: {fileID: 8339932829973439724, guid: 7be9abef68a498a44a01715071a228e8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.62211657
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7be9abef68a498a44a01715071a228e8, type: 3}
