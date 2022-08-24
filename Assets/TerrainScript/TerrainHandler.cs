@@ -181,17 +181,12 @@ public class TerrainHandler : MonoBehaviour
                     }
                     else
                     {
-                        //board[i,k] = ((_thisValue +1) / 2);
-                        //_thisValue = board[i,k];
-                        /* Vector3 _spawnPos = new Vector3(i,0,k);
-                        for ( int l = -1; l < _thisValue; l++)
+                        Vector3 _spawnPos = new Vector3(i,0,k);
+                        for (int l = (_thisValue/2 -1); l > -1; l--)
                         {
-                            Instantiate(listOfTiles[1], _spawnPos + (Vector3.up * l) , Quaternion.identity);
-                        } */
-                        Vector3 _spawnPos = new Vector3(i,10,k);
-                        Instantiate(listOfTiles[1], _spawnPos , Quaternion.identity);
+                            Instantiate(listOfTiles[1], _spawnPos + new Vector3(0,l,0) , Quaternion.identity);
+                        } 
                     }
-                    //board[i,k] = ((_thisValue +1) / 2); // use Math average instead
                 }
                 else if( i == 3 || i == sizeX-4 || k == 3 || k == sizeY-4) // 3 fields from the edges
                 {
@@ -205,7 +200,7 @@ public class TerrainHandler : MonoBehaviour
                         //board[i,k] = ((_thisValue +1) / 2);
                         //_thisValue = board[i,k];
                         Vector3 _spawnPos = new Vector3(i,0,k);
-                        for ( int l = -1; l < _thisValue; l++)
+                        for (int l = (_thisValue/2 -1); l > -1; l--)
                         {
                             Instantiate(listOfTiles[1], _spawnPos + (Vector3.up * l) , Quaternion.identity);
                         }
@@ -217,36 +212,13 @@ public class TerrainHandler : MonoBehaviour
                     if( _thisValue > 6 )
                     {
                         Vector3 _spawnPos = new Vector3(i,0,k);
-                        for ( int l = -1; l < _thisValue; l++)
+                        for (int l = (_thisValue/2 -1); l > -1; l--)
                         {
                             Instantiate(listOfTiles[1], _spawnPos + (Vector3.up * l) , Quaternion.identity);
                         }
                     }
                 }
-                else if( i == 4 || i == sizeX-5 || k == 4 || k == sizeY-5) // 4 fields from the edges
-                {
-                    int _thisValue = board[i,k];
-                    if( _thisValue > 6 )
-                    {
-                        Vector3 _spawnPos = new Vector3(i,0,k);
-                        for ( int l = -1; l < _thisValue; l++)
-                        {
-                            Instantiate(listOfTiles[1], _spawnPos + (Vector3.up * l) , Quaternion.identity);
-                        }
-                    }
-                }
-                else if( i == 5 || i == sizeX-6 || k == 5 || k == sizeY-6) // 4 fields from the edges
-                {
-                    int _thisValue = board[i,k];
-                    if( _thisValue > 6 )
-                    {
-                        Vector3 _spawnPos = new Vector3(i,0,k);
-                        for ( int l = -1; l < _thisValue; l++)
-                        {
-                            Instantiate(listOfTiles[1], _spawnPos + (Vector3.up * l) , Quaternion.identity);
-                        }
-                    }
-                }
+            
                 else
                 {
                     // do nothing

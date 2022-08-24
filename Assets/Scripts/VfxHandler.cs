@@ -25,7 +25,6 @@ public class VfxHandler : MonoBehaviour
         List<Vector3> peaks = terra.GetMountainPeaks();
         for( int i = 0; i < peaks.Count; i++)
         {
-            Debug.Log("we reach the vfx setter");
             Vector3 _currentPos = peaks[i];
             // Instantiate the relevant Vfx
             VisualEffect _newEffect = Instantiate(snowEffect, _currentPos , Quaternion.identity);
