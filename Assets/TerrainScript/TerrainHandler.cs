@@ -125,7 +125,7 @@ public class TerrainHandler : MonoBehaviour
     //{
     //    for(int i = 0; i < gameObject.transform.childCount; i++) 
     //    {
-    //        Destroy(gameObject.transform.GetChild(i).gameObject);
+    //        Destroy(gameObject.transform.GetChild(i).gameObject); //didn't actually destroy the tiles
     //    }
     //}
 

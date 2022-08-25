@@ -76,10 +76,12 @@ public class Spawner : MonoBehaviour
     /*Old'nUgly Spaghettie Style*/
     public void SpawnItems(bool respawn = false)
     {
+        if(itemList.Count == 0)
+        { Debug.LogWarning("There are no Items in the SpawnerList"); }
         foreach (var item in itemList)
         {
-            Instantiate(item, /*CreateSpawnPosition(terrainHandler.Breite,terrainHandler.Höhe)*/terrainHandler.GetRandomPosition(), item.transform.rotation);
-            Debug.Log("Spawned: " + item);
+            Instantiate(item, CreateSpawnPosition(terrainHandler.Breite, terrainHandler.Höhe)/*terrainHandler.GetRandomPosition()*/, item.transform.rotation);
+            //Debug.Log("Spawned: " + item);
         }
     }
     public void ReSpawnItems()
@@ -87,7 +89,7 @@ public class Spawner : MonoBehaviour
         foreach(var item in itemList)
         {
             item.gameObject.SetActive(false);
-            item.gameObject.transform.position = terrainHandler.GetRandomPosition();
+            item.gameObject.transform.position = CreateSpawnPosition(terrainHandler.Breite, terrainHandler.Höhe);/*terrainHandler.GetRandomPosition();*/
             item.gameObject.SetActive(true);
         }
     }

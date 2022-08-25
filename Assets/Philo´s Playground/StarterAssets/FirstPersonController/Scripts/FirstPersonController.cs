@@ -87,7 +87,7 @@ namespace StarterAssets
 				#endif
 			}
 		}
-
+		
 		private void Awake()
 		{
 			// get a reference to our main camera
@@ -124,7 +124,8 @@ namespace StarterAssets
 
 		private void LateUpdate()
 		{
-			if (gameState.isRunning) CameraRotation();
+			if (gameState.isRunning) { CameraRotation(); Cursor.lockState = CursorLockMode.Locked; }
+			else Cursor.lockState = CursorLockMode.Confined;
 		}
 
 		private void GroundedCheck()
