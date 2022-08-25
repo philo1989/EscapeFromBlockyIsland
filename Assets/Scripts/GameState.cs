@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class GameState : MonoBehaviour
 {
     [Header("menu Panels")]
@@ -17,6 +18,7 @@ public class GameState : MonoBehaviour
     public GameObject player;
     public Canvas menu;
     public Spawner spawner;
+    public TerrainHandler terrainHandler;
     public float countdown = 300.0f;
     private float time;
     public bool isRunning = false;
@@ -38,18 +40,7 @@ public class GameState : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (menu.isActiveAndEnabled)
-            {   
-                menu.enabled = false;
-                isRunning = true;
-                isPaused = false;
-            }
-            else 
-            { 
-                menu.enabled = true;
-                isRunning = false;
-                isPaused = true;
-            }
+            ToggleMenu();
         }
     }
 
@@ -58,24 +49,52 @@ public class GameState : MonoBehaviour
         justStarted = false;
         isRunning = true;
         menu.enabled = false;
+
+        player.transform.position = terrainHandler.GetRandomPosition();
         player.SetActive(true);
 
-        /*for the time being*/
+        /*for the time beeing*/
         start.gameObject.SetActive(false);
         restart.gameObject.SetActive(true);
         resume.gameObject.SetActive(true);
         /*mit event caaall ersetzen*/
-        spawner.SpawnOldStyle();
+        spawner.SpawnItems();
 
         /*TimerStart*/
         float _startTime = Time.time;
     }
     public void QuitApplication()
     {
-
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#else
+        Application.Quit();
+#endif
     }
     public void Restart()
-    { spawner.ReSpawnTerrain(); }
-    public void Resume()
-    { }
+    {
+        player.SetActive(false);
+        terrainHandler.ResetBoard();
+        spawner.ReSpawnItems();
+
+        
+        player.transform.position = terrainHandler.GetRandomPosition();
+        player.SetActive(true);
+        ToggleMenu();
+    }
+    public void ToggleMenu()
+    {
+        if (menu.isActiveAndEnabled)
+        {
+            menu.enabled = false;
+            isRunning = true;
+            isPaused = false;
+        }
+        else
+        {
+            menu.enabled = true;
+            isRunning = false;
+            isPaused = true;
+        }
+    }
 }

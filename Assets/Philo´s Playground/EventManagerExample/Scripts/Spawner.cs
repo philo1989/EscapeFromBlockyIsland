@@ -74,16 +74,22 @@ public class Spawner : MonoBehaviour
         return spawnPoint;
     }
     /*Old'nUgly Spaghettie Style*/
-    public void SpawnOldStyle()
+    public void SpawnItems(bool respawn = false)
     {
         foreach (var item in itemList)
         {
-            Instantiate(item, CreateSpawnPosition(terrainHandler.Breite,terrainHandler.Höhe), item.transform.rotation);
-            Debug.Log("not acttually Spaawand" + item);
+            Instantiate(item, /*CreateSpawnPosition(terrainHandler.Breite,terrainHandler.Höhe)*/terrainHandler.GetRandomPosition(), item.transform.rotation);
+            Debug.Log("Spawned: " + item);
         }
     }
-    public void ReSpawnTerrain()
+    public void ReSpawnItems()
     {
-        terrainHandler.CreateLandscape();
+        foreach(var item in itemList)
+        {
+            item.gameObject.SetActive(false);
+            item.gameObject.transform.position = terrainHandler.GetRandomPosition();
+            item.gameObject.SetActive(true);
+        }
     }
+    
 }
