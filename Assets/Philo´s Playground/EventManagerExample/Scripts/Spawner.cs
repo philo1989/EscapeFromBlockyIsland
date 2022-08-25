@@ -2,15 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 public class Spawner : MonoBehaviour
-{
+{   /**/
     public int spawnCount;
     [Range(1, 100)]
     public int spawnRadius = 1;
     public float minionOffset = 1;
     public GameObject minion;
-
+    /**/
+    /*BlockyIslands Stuff*/
+    public TerrainHandler terrainHandler;
+    public List<GameObject> itemList;
     //private UnityAction spawnListener;
 
     //private void Awake()
@@ -62,4 +66,30 @@ public class Spawner : MonoBehaviour
         }
         return spawnPosition;
     }
+    private Vector3 CreateSpawnPosition(int maxY,int maxX)
+    {
+        
+
+        Vector3 spawnPoint = new Vector3(Random.Range(0, maxY), 5,Random.Range(0, maxX));
+        return spawnPoint;
+    }
+    /*Old'nUgly Spaghettie Style*/
+    public void SpawnItems(bool respawn = false)
+    {
+        foreach (var item in itemList)
+        {
+            Instantiate(item, /*CreateSpawnPosition(terrainHandler.Breite,terrainHandler.Höhe)*/terrainHandler.GetRandomPosition(), item.transform.rotation);
+            Debug.Log("Spawned: " + item);
+        }
+    }
+    public void ReSpawnItems()
+    {
+        foreach(var item in itemList)
+        {
+            item.gameObject.SetActive(false);
+            item.gameObject.transform.position = terrainHandler.GetRandomPosition();
+            item.gameObject.SetActive(true);
+        }
+    }
+    
 }

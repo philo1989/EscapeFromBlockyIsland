@@ -32,6 +32,7 @@ public class TerrainHandler : MonoBehaviour
     public int hillsMinHeight = 4;
     // the prefab Objects to be instantiated are saved in the list
     public List<GameObject> listOfTiles;
+    /*Added*/ public List<GameObject> generatedGameobjects;
     private List<Vector3> listofPeaks = new List<Vector3>();
 
     // --------------- Main Methods -------------
@@ -69,7 +70,11 @@ public class TerrainHandler : MonoBehaviour
                     }
                     int _currentValue = board[i,j];
 
-                    Instantiate(_currentPrefab, _spawnPos + (Vector3.up * _currentValue / 2) + GenerateShift(10f) , Quaternion.identity, gameObject.transform);
+                    //adds the instance of the prefab to the list for later use (destroying:)
+         /*Added*/  generatedGameobjects.Add(Instantiate(_currentPrefab, _spawnPos + (Vector3.up * _currentValue / 2) + GenerateShift(10f), Quaternion.identity));
+  
+                    //Instantiate(_currentPrefab, _spawnPos + (Vector3.up * _currentValue / 2) + GenerateShift(10f) , Quaternion.identity, gameObject.transform);
+
                     _spawnPos = _spawnPos + new Vector3(0,0,1);
 
                 }
@@ -367,10 +372,30 @@ public class TerrainHandler : MonoBehaviour
 
     public void ResetBoard()
     {
-        DestroyLandscape();
+        DestroyLandscape(); 
         GenerateBoard(amountOfHills);
         CreateLandscape();
     }
+    public void DestroyLandscape()
+    {
+        //for (int i = 0; i < gameObject.transform.childCount; i++)
+        //{
+        //    Destroy(gameObject.transform.GetChild(i).gameObject);
+        //}
+
+        /*Added/Changed*/
+        foreach(var tile in generatedGameobjects)
+        {
+            Destroy(tile);
+        }
+        generatedGameobjects.Clear();
+    }
+
+       /* DestroyLandscape();
+        GenerateBoard(amountOfHills);
+        CreateLandscape();
+    }*/
+
 
     /* ----- Getters to interact with the Landscape from outside the class ---
        -----------------------------------------------------------------------
