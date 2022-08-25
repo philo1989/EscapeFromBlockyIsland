@@ -12,6 +12,8 @@ using System;
     evenly distributed on the entire Map, amount is the amount of objects that need to be placed
     > public Vector3 GetRandomPosition() - Returns a Vector3 Position randomly on the entire map
 
+    > public ResetBoard() - Destroys the current Terrain and generates a new one. Issue: the current Vfx and sounds dont get reset
+
     */
 
 public class TerrainHandler : MonoBehaviour
@@ -67,10 +69,12 @@ public class TerrainHandler : MonoBehaviour
                         else _currentPrefab = listOfTiles[0];
                     }
                     int _currentValue = board[i,j];
+
                     //adds the instance of the prefab to the list for later use (destroying:)
          /*Added*/  generatedGameobjects.Add(Instantiate(_currentPrefab, _spawnPos + (Vector3.up * _currentValue / 2) + GenerateShift(10f), Quaternion.identity));
-                    
-                    
+  
+                    //Instantiate(_currentPrefab, _spawnPos + (Vector3.up * _currentValue / 2) + GenerateShift(10f) , Quaternion.identity, gameObject.transform);
+
                     _spawnPos = _spawnPos + new Vector3(0,0,1);
 
                 }
@@ -78,13 +82,7 @@ public class TerrainHandler : MonoBehaviour
             }
         }
     }
-    private void InsertVfx(string effect, int posX, int posY)
-    {
-        if( effect == "snow")
-        {
-            //put in snow
-        }
-    }
+
     // alternative Spawner that stacks the prefabs on top of each other instead of shifting their height
     public void CreateLandscapeMinecraft()
     {
@@ -123,6 +121,14 @@ public class TerrainHandler : MonoBehaviour
         }
     }
 
+    public void DestroyLandscape()
+    {
+        for(int i = 0; i < gameObject.transform.childCount; i++)
+        {
+            Destroy(gameObject.transform.GetChild(i).gameObject);
+        }
+    }
+
     // Generates random Hills and fills the board accordingly with the InsertHill method, the parameter decides how many hills
     public void GenerateBoard(int hills)
     {
@@ -138,7 +144,7 @@ public class TerrainHandler : MonoBehaviour
                 int _posX = Mathf.RoundToInt( UnityEngine.Random.Range(4, sizeX-4));
                 int _posY = Mathf.RoundToInt( UnityEngine.Random.Range(4, sizeY-4));
 
-                Debug.Log("Inserting new hill with a height of "+_currentHillHeight+" at position: "+_posX+" and"+_posY);
+                //Debug.Log("Inserting new hill with a height of "+_currentHillHeight+" at position: "+_posX+" and"+_posY);
 
                 InsertHill(_posX,_posY,_currentHillHeight);
                 // This is the main peak of the hill, so we want to insert a Snow Vfx here
@@ -155,7 +161,7 @@ public class TerrainHandler : MonoBehaviour
             //the hills are done, lets create a beach all around it
             FlattenEdge();
 
-            Debug.Log("board generated");
+            //Debug.Log("board generated");
             boardCreated = true;
 
         }
@@ -187,7 +193,7 @@ public class TerrainHandler : MonoBehaviour
                         Vector3 _spawnPos = new Vector3(i,0,k);
                         for (int l = (_thisValue/2 -1); l > -1; l--)
                         {
-                            Instantiate(listOfTiles[1], _spawnPos + new Vector3(0,l,0) , Quaternion.identity);
+                            Instantiate(listOfTiles[1], _spawnPos + new Vector3(0,l,0) , Quaternion.identity, gameObject.transform);
                         } 
                     }
                 }
@@ -205,7 +211,7 @@ public class TerrainHandler : MonoBehaviour
                         Vector3 _spawnPos = new Vector3(i,0,k);
                         for (int l = (_thisValue/2 -1); l > -1; l--)
                         {
-                            Instantiate(listOfTiles[1], _spawnPos + (Vector3.up * l) , Quaternion.identity);
+                            Instantiate(listOfTiles[1], _spawnPos + (Vector3.up * l) , Quaternion.identity, gameObject.transform);
                         }
                     }
                 }
@@ -217,7 +223,7 @@ public class TerrainHandler : MonoBehaviour
                         Vector3 _spawnPos = new Vector3(i,0,k);
                         for (int l = (_thisValue/2 -1); l > -1; l--)
                         {
-                            Instantiate(listOfTiles[1], _spawnPos + (Vector3.up * l) , Quaternion.identity);
+                            Instantiate(listOfTiles[1], _spawnPos + (Vector3.up * l) , Quaternion.identity, gameObject.transform);
                         }
                     }
                 }
@@ -366,7 +372,7 @@ public class TerrainHandler : MonoBehaviour
 
     public void ResetBoard()
     {
-        DestroyLandscape(); /*doesn't actually Destroy the objects*/
+        DestroyLandscape(); 
         GenerateBoard(amountOfHills);
         CreateLandscape();
     }
@@ -384,6 +390,13 @@ public class TerrainHandler : MonoBehaviour
         }
         generatedGameobjects.Clear();
     }
+
+       /* DestroyLandscape();
+        GenerateBoard(amountOfHills);
+        CreateLandscape();
+    }*/
+
+
     /* ----- Getters to interact with the Landscape from outside the class ---
        -----------------------------------------------------------------------
        Goals: Returning a Vector3 to spawn trees and decorative objects
@@ -511,7 +524,7 @@ public class TerrainHandler : MonoBehaviour
     {
         SetSize(Breite,Höhe);
         GenerateBoard(amountOfHills);
-        MyDebug();
+        //MyDebug();
         CreateLandscape();
     }
     // Start is called before the first frame update
