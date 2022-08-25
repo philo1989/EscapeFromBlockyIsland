@@ -1067,14 +1067,8 @@ MonoBehaviour:
   spawnRadius: 20
   minionOffset: 1
   minion: {fileID: 2210770756786327758, guid: 02b09698fd317f744aa68609ca02c7ae, type: 3}
-  terrainHandler: {fileID: 1305735284}
-  itemList:
-  - {fileID: 6038189386984707795, guid: e23ecb246d346044691334f73417e7b3, type: 3}
-  - {fileID: 1798577488258893799, guid: 88543c9fe2c95aa47983513c7a2d95c8, type: 3}
-  - {fileID: 2492415150091003603, guid: 2b3f007ffc608a648b4be51770822037, type: 3}
-  - {fileID: 3872509436338187083, guid: bbc169bfed4d29c4baaa8ba24c957499, type: 3}
-  - {fileID: 5885443247700253626, guid: 435020b4642941a49a091604fb271ae5, type: 3}
-  - {fileID: 2097677619190175109, guid: 72e58bba7a6fafc43a4f0dfaeaf41730, type: 3}
+  terrainHandler: {fileID: 0}
+  itemList: []
 --- !u!4 &1045453669
 Transform:
   m_ObjectHideFlags: 0

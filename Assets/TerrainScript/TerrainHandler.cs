@@ -121,13 +121,13 @@ public class TerrainHandler : MonoBehaviour
         }
     }
 
-    public void DestroyLandscape()
-    {
-        for(int i = 0; i < gameObject.transform.childCount; i++)
-        {
-            Destroy(gameObject.transform.GetChild(i).gameObject);
-        }
-    }
+    //public void DestroyLandscape() 
+    //{
+    //    for(int i = 0; i < gameObject.transform.childCount; i++) 
+    //    {
+    //        Destroy(gameObject.transform.GetChild(i).gameObject);
+    //    }
+    //}
 
     // Generates random Hills and fills the board accordingly with the InsertHill method, the parameter decides how many hills
     public void GenerateBoard(int hills)
