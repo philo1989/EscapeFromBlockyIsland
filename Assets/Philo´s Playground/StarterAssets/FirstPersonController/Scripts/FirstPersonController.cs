@@ -50,7 +50,9 @@ namespace StarterAssets
 		public float TopClamp = 90.0f;
 		[Tooltip("How far in degrees can you move the camera down")]
 		public float BottomClamp = -90.0f;
-
+		/*Edits for BlockIslands*/
+		public GameState gameState;
+		/*Edits End*/
 		// cinemachine
 		private float _cinemachineTargetPitch;
 
@@ -112,14 +114,17 @@ namespace StarterAssets
 
 		private void Update()
 		{
+			if (gameState.isRunning)
+			{ 
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
-		}
+            }
+        }
 
 		private void LateUpdate()
 		{
-			CameraRotation();
+			if (gameState.isRunning) CameraRotation();
 		}
 
 		private void GroundedCheck()

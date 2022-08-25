@@ -81,10 +81,10 @@ namespace StarterAssets
 		{
 			menu = newEsCINput;
 		}
-		public void OnEsc(InputValue value)
-		{
-			EsCInput(value.isPressed);
-		}
+		//public void OnEsc(InputValue value)
+		//{
+		//	EsCInput(value.isPressed);
+		//}
 	}
 	
 }
