@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
-public class EventTriggerTest : MonoBehaviour
+public class InputHandler : MonoBehaviour
 {
     public StarterAssetsInputs _input;
     //InputAction.CallbackContext context;
@@ -26,8 +26,10 @@ public class EventTriggerTest : MonoBehaviour
             ctx =>
             {
                 var button = (ButtonControl)ctx.control;
-                if (button.wasPressedThisFrame)
+                if (button.wasPressedThisFrame) { 
+                    if (button.Equals("escape"))
                     Debug.Log($"Button {ctx.control} was pressed");
+                }
                 else if (button.wasReleasedThisFrame)
                     Debug.Log($"Button {ctx.control} was released");
                 // NOTE: We may get calls here in which neither the if nor the else

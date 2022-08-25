@@ -12,6 +12,7 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool menu;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -74,6 +75,15 @@ namespace StarterAssets
 		private void SetCursorState(bool newState)
 		{
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
+		}
+		//added stuff
+		public void EsCInput(bool newEsCINput)
+		{
+			menu = newEsCINput;
+		}
+		public void OnEsc(InputValue value)
+		{
+			EsCInput(value.isPressed);
 		}
 	}
 	
