@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2683625910819469788}
   - component: {fileID: 8241898847581891374}
   m_Layer: 0
-  m_Name: Tile-DIrt2
+  m_Name: Tile-Sand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 79bba749d3b08e949a0321608520d42a, type: 2}
+  - {fileID: 2100000, guid: 5d9740ef18cef8741aa4b6377f8c2ce2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
